@@ -5,6 +5,8 @@ python:
   - "3.7"
 before_install:
   - python -m pip install --upgrade pip
+  - sudo apt-get update
+  - sudo apt-get -y install g++ cmake make automake
 install:
   - pip install tensorflow==1.14.0
 jobs:
@@ -16,7 +18,7 @@ jobs:
       env:
         - ROSETTA_MPC_128=OFF
 script: 
-  - ./rosetta.sh clean
+  - ./rosetta.sh clean && ./rosetta.sh compile --enable-protocol-mpc-securenn && ./rosetta.sh install
 branches:
   only:
     - test-trvais
