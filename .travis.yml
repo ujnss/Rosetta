@@ -1,5 +1,22 @@
+dist: bionic
+sudo: required
 language: python
-script: true
+python:
+  - "3.7"
+before_install:
+  - python -m pip install --upgrade pip
+install:
+  - pip install tensorflow==1.14.0
+matrix:
+  include:
+    - os: linux
+      env:
+        - ROSETTA_MPC_128=ON
+    - os: linux
+      env:
+        - ROSETTA_MPC_128=OFF
+script: 
+  - ./rosetta.sh clean
 branches:
   only:
     - test-trvais
