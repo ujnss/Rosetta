@@ -2,4 +2,4 @@ language: python
 script: true
 branches:
   only:
-    - mybranch
+    - test-trvais
