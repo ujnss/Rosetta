@@ -1,5 +1,5 @@
 dist: bionic
-sudo: required
+os: linux
 language: python
 python:
   - "3.7"
@@ -7,7 +7,7 @@ before_install:
   - python -m pip install --upgrade pip
 install:
   - pip install tensorflow==1.14.0
-matrix:
+jobs:
   include:
     - os: linux
       env:
