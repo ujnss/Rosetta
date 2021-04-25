@@ -4,6 +4,8 @@
 
 --------------------------------------------------------------------------------
 
+[![Build Status](https://travis-ci.com/ujnss/Rosetta.svg?branch=master)](https://travis-ci.com/ujnss/Rosetta)
+
 [中文版](./README_CN.md)
 
 ## Overview
