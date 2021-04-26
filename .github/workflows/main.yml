@@ -20,6 +20,7 @@ jobs:
         # python-version: [3.6, 3.7, 3.8]
         include:
           - rosetta_compile_option: "--enable-protocol-mpc-securenn"
+            python-version: [3.6, 3.7, 3.8]
             other: "other"
           - rosetta_compile_option: "--enable-protocol-mpc-securenn --enable-128bit"
             other: "others"
