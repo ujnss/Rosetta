@@ -1,10 +1,12 @@
 language: python
 dist: bionic
 os: linux
-sudo: 
+env: 
   matrix:
-    - false
-    - true
+    - PYTHON=3.6 ROSETTA_MPC_128=ON
+    - PYTHON=3.6 ROSETTA_MPC_128=OFF
+    - PYTHON=3.7 ROSETTA_MPC_128=ON
+    - PYTHON=3.7 ROSETTA_MPC_128=OFF
 python:
   - "3.7"
 before_install:
@@ -13,15 +15,8 @@ before_install:
   - sudo apt-get -y install g++ cmake make automake
 install:
   - pip install tensorflow==1.14.0
-jobs:
-  include:
-    - os: linux
-      env:
-        - ROSETTA_MPC_128=ON
-    - os: linux
-      env:
-        - ROSETTA_MPC_128=OFF
 script: 
+  - python --version
   - ./rosetta.sh clean && ./rosetta.sh compile --enable-protocol-mpc-securenn && ./rosetta.sh install
 branches:
   only:
