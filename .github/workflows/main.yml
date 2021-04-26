@@ -24,6 +24,7 @@ jobs:
           - rosetta_compile_option: "--enable-protocol-mpc-securenn --enable-128bit"
             other: "others"
     steps:
+      - uses: actions/checkout@v2
       - name: Install basic dependencies
         run:
           sudo apt-get update
