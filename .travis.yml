@@ -9,8 +9,8 @@ env:
   - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
   - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
 python:
-  - "3.6"
   - "3.7"
+  - "3.6"
 before_install:
   - python -m pip install --upgrade pip
   - sudo apt-get update
