@@ -23,7 +23,8 @@ script:
   - ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
 after_script: 
   - ./rosetta.sh install
-  - ./rosetta.sh test
+  - ./rosetta.sh test all
+  - cd ./example/tutorials/code && bash ./tutorials.sh all
 
 branches:
   only:
