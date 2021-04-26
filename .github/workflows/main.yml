@@ -23,6 +23,8 @@ jobs:
           - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-128bit"
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - name: Install basic dependencies
         run: |
           sudo apt-get update
@@ -32,7 +34,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install tensorflow==1.14.0 sklearn matplotlib
       - name: List versions
-        run: gcc --version && cmake --version && python --version && pip --version && pip list
+        run: uname -a && gcc --version && cmake --version && python --version && pip --version && pip list
       - name: Before compile
         run: ./rosetta.sh clean
       - name: Compile
