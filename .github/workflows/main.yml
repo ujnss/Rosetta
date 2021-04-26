@@ -24,18 +24,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install basic dependencies
-        run:
+        run: |
           sudo apt-get update
-          # sudo apt-get -y install g++ cmake make automake
+          sudo apt-get -y install g++ cmake make automake
       - name: Install python dependencies
-        run:
+        run: |
           python -m pip install --upgrade pip
-          # pip install tensorflow==1.14.0 sklearn matplotlib
+          pip install tensorflow==1.14.0 sklearn matplotlib
+      - name: List versions
+        run: gcc --version && cmake --version && python --version && pip --version && pip list
       - name: Before compile
-        run: echo ${GITHUB_WORKSPACE} && ls -al && ls .. -al && ls ../.. -al
+        run: ./rosetta.sh clean
       - name: Compile
-        run: echo "./rosetta.sh compile ${ROSETTA_COMPILE_OPTIONS} --enable-tests"
-        # run: ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
+        run: ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
       # - name: Install
       #   run: ./rosetta.sh install
       # - name: Test modules
