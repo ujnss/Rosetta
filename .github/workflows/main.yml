@@ -1,4 +1,4 @@
-name: Rosetta
+name: CI-Rosetta
 
 on:
   push:
