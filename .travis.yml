@@ -1,31 +1,3 @@
 language: python
 dist: bionic
 os: linux
-env:
-  # - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-securenn"
-  # - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-securenn --enable-128bit"
-  # - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-helix"
-  # - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-helix --enable-128bit"
-  - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
-  - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
-python:
-  # - "3.6"
-  - "3.7"
-before_install:
-  - python -m pip install --upgrade pip
-  - sudo apt-get update
-  - sudo apt-get -y install g++ cmake make automake
-install:
-  - pip install tensorflow==1.14.0 sklearn matplotlib
-before_script: 
-  - ./rosetta.sh clean
-script:
-  - ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
-after_script: 
-  - ./rosetta.sh install
-  - ./rosetta.sh test all
-  - cd ./example/tutorials/code && bash ./tutorials.sh all
-
-branches:
-  only:
-    - test-trvais

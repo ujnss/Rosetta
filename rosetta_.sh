@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+set -ex
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -15,7 +15,6 @@ cctf_misc=${curdir}/cc/tf/misc/
 mpcop_py_testdir=${curdir}/python/latticex/rosetta/secure/decorator/test_cases
 mpcgradop_py_testdir=${curdir}/python/latticex/rosetta/secure/grads_ops/test_cases
 spass_py_testdir=${curdir}/python/latticex/rosetta/secure/spass/test_cases
-dpass_py_testdir=${dynamic_pass}/test_cases
 misc_py_testdir=${cctf_misc}/test_cases
 
 pv=$(python3 -c 'import sys; print(sys.version_info[0])')
@@ -113,16 +112,6 @@ function run_rosetta_test_python() {
     cp -f ${ccdir}/certs/* ${spass_py_testdir}/certs/
     cd ${spass_py_testdir}
     echo -e "run static pass test cases"
-    if [ -f ./test.sh ]; then
-      bash ./test.sh
-    fi
-  fi
-
-  if [ $rtt_test_py_dpass -eq 1 ]; then
-    mkdir -p ${dpass_py_testdir}/certs
-    cp -f ${ccdir}/certs/* ${dpass_py_testdir}/certs/
-    cd ${dpass_py_testdir}
-    echo -e "run dynamic pass test cases"
     if [ -f ./test.sh ]; then
       bash ./test.sh
     fi
