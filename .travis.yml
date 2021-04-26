@@ -22,7 +22,7 @@ before_script:
   - ./rosetta.sh clean
 script:
   - ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
-before_script: 
+after_script: 
   - ./rosetta.sh install
 
 branches:
