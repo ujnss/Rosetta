@@ -17,10 +17,11 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.7]
+        # python-version: [3.6, 3.7, 3.8]
         env:
           - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn"
-          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-128bit"
+          # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-128bit"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -34,7 +35,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install tensorflow==1.14.0 sklearn matplotlib
       - name: List versions
-        run: uname -a && gcc --version && cmake --version && python --version && pip --version && pip list
+        run: uname -a && gcc --version && cmake --version && python --version && python3 --version && pip --version && pip list
       - name: Before compile
         run: ./rosetta.sh clean
       - name: Compile
