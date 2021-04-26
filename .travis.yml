@@ -20,8 +20,17 @@ before_script:
 jobs:
   include:
     - name: SecureNN
-      script:
-      - ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-128bit
+      script: ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-128bit
+    - name: SecureNN (128 bit)
+      script: ./rosetta.sh compile --enable-protocol-mpc-securenn
+    - name: Helix
+      script: ./rosetta.sh compile --enable-protocol-mpc-helix --enable-128bit
+    - name: Helix (128 bit)
+      script: ./rosetta.sh compile --enable-protocol-mpc-helix
+    - name: SecureNN and Helix
+      script: ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit
+    - name: SecureNN and Helix (128 bit)
+      script: ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-protocol-mpc-helix
 
 branches:
   only:
