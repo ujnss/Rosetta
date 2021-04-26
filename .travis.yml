@@ -1,10 +1,10 @@
 language: python
 dist: bionic
 os: linux
-env: 
+env:
   matrix:
-    - ROSETTA_MPC_128=ON
-    - ROSETTA_MPC_128=OFF
+    - VENV_ROSETTA_MPC_128=ON
+    - VENV_ROSETTA_MPC_128=OFF
 python:
   - "3.6"
   - "3.7"
@@ -14,9 +14,36 @@ before_install:
   - sudo apt-get -y install g++ cmake make automake
 install:
   - pip install tensorflow==1.14.0
-script: 
+before_script: 
   - python --version
-  - ./rosetta.sh clean && ./rosetta.sh compile --enable-protocol-mpc-securenn && ./rosetta.sh install
+  - ./rosetta.sh clean
+jobs:
+  include:
+    - name: SecureNN
+      script:
+      - |
+      if [[ "$VENV_ROSETTA_MPC_128" == "ON" ]]; then
+        ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-128bit
+      else
+        ./rosetta.sh compile --enable-protocol-mpc-securenn
+      fi
+    - name: Helix
+      script:
+      - |
+      if [[ "$VENV_ROSETTA_MPC_128" == "ON" ]]; then
+        ./rosetta.sh compile --enable-protocol-mpc-helix --enable-128bit
+      else
+        ./rosetta.sh compile --enable-protocol-mpc-helix
+      fi
+    - name: SecureNN and Helix
+      script:
+      - |
+      if [[ "$VENV_ROSETTA_MPC_128" == "ON" ]]; then
+        ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit
+      else
+        ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-protocol-mpc-helix
+      fi
+
 branches:
   only:
     - test-trvais
