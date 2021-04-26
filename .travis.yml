@@ -21,28 +21,7 @@ jobs:
   include:
     - name: SecureNN
       script:
-      - |
-      if [[ "$VENV_ROSETTA_MPC_128" == "ON" ]]; then
-        ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-128bit
-      else
-        ./rosetta.sh compile --enable-protocol-mpc-securenn
-      fi
-    - name: Helix
-      script:
-      - |
-      if [[ "$VENV_ROSETTA_MPC_128" == "ON" ]]; then
-        ./rosetta.sh compile --enable-protocol-mpc-helix --enable-128bit
-      else
-        ./rosetta.sh compile --enable-protocol-mpc-helix
-      fi
-    - name: SecureNN and Helix
-      script:
-      - |
-      if [[ "$VENV_ROSETTA_MPC_128" == "ON" ]]; then
-        ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit
-      else
-        ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-protocol-mpc-helix
-      fi
+      - ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-128bit
 
 branches:
   only:
