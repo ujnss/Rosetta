@@ -1,10 +1,10 @@
-name: CI-test-trvais
+name: Rosetta
 
 on:
   push:
-    branches: [test-trvais]
+    branches: [test-actions]
   pull_request:
-    branches: [test-trvais]
+    branches: [test-actions]
 
   workflow_dispatch:
 
