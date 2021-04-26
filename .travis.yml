@@ -3,11 +3,10 @@ dist: bionic
 os: linux
 env: 
   matrix:
-    - PYTHON=3.6 ROSETTA_MPC_128=ON
-    - PYTHON=3.6 ROSETTA_MPC_128=OFF
-    - PYTHON=3.7 ROSETTA_MPC_128=ON
-    - PYTHON=3.7 ROSETTA_MPC_128=OFF
+    - ROSETTA_MPC_128=ON
+    - ROSETTA_MPC_128=OFF
 python:
+  - "3.6"
   - "3.7"
 before_install:
   - python -m pip install --upgrade pip
