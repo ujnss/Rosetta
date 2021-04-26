@@ -8,20 +8,23 @@ on:
 
   workflow_dispatch:
 
-# defaults:
-#   run:
-#     working-directory: ./
+defaults:
+  run:
+    working-directory: ./
 
 jobs:
   build:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        python-version: [3.7]
-        # python-version: [3.6, 3.7, 3.8]
+        python-version: [3.6, 3.7, 3.8]
         env:
           - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn"
-          # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-128bit"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-128bit"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-helix"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-helix --enable-128bit"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -44,9 +47,9 @@ jobs:
         run: ./rosetta.sh clean
       - name: Compile
         run: ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
-      # - name: Install
-      #   run: ./rosetta.sh install
-      # - name: Test modules
-      #   run: ./rosetta.sh test all
-      # - name: Test tutorials
-      #   run: cd ./example/tutorials/code && bash ./tutorials.sh all
+      - name: Install
+        run: ./rosetta.sh install
+      - name: Tests & examples
+        run: ./rosetta.sh test all
+      - name: Tutorials
+        run: cd ./example/tutorials/code && bash ./tutorials.sh all
