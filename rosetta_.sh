@@ -86,7 +86,7 @@ function run_rosetta_perf_modules() {
 }
 
 function run_rosetta_test_python() {
-  #echo -e "stage run_rosetta_test_python."
+  echo -e "stage run_rosetta_test_python."
 
   if [ $rtt_test_py_op -eq 1 ]; then
     mkdir -p ${mpcop_py_testdir}/certs
@@ -139,7 +139,7 @@ function run_rosetta_test_python() {
   fi
 
   cd ${curdir}
-  #echo -e "${GREEN}run_rosetta_test_python.${NC}"
+  echo -e "${GREEN}run_rosetta_test_python.${NC}"
 }
 
 function run_rosetta_clean() {
