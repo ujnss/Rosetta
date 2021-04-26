@@ -34,7 +34,7 @@ jobs:
           python -m pip install --upgrade pip
           # pip install tensorflow==1.14.0 sklearn matplotlib
       - name: Before compile
-        run: echo ${GITHUB_WORKSPACE} && ls -al && ls .. -al && ls ../.. -al && ./rosetta.sh clean
+        run: echo ${GITHUB_WORKSPACE} && ls -al && ls .. -al && ls ../.. -al
       - name: Compile
         env:
           ROSETTA_COMPILE_OPTIONS: ${{ matrix.rosetta_compile_option }}
