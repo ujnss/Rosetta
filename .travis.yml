@@ -1,6 +1,10 @@
+language: python
 dist: bionic
 os: linux
-language: python
+sudo: 
+  matrix:
+    - false
+    - true
 python:
   - "3.7"
 before_install:
