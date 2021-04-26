@@ -18,6 +18,9 @@ jobs:
     strategy:
       matrix:
         # python-version: [3.6, 3.7, 3.8]
+        env:
+          - KKK: "ABCD"
+          - KKK: "ABCDE"
         include:
           - rosetta_compile_option: "--enable-protocol-mpc-securenn"
             python-version: [3.6, 3.7, 3.8]
