@@ -1,6 +1,13 @@
 language: python
 dist: bionic
 os: linux
+env:
+  - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-securenn"
+  - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-securenn --enable-128bit"
+  - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-helix"
+  - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-helix --enable-128bit"
+  - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
+  - ROSETTA_COMPILE_OPTIONS="--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
 python:
   - "3.6"
   - "3.7"
@@ -13,20 +20,8 @@ install:
 before_script: 
   - python --version
   - ./rosetta.sh clean
-jobs:
-  include:
-    - name: SecureNN
-      script: ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-128bit
-    - name: SecureNN (128 bit)
-      script: ./rosetta.sh compile --enable-protocol-mpc-securenn
-    - name: Helix
-      script: ./rosetta.sh compile --enable-protocol-mpc-helix --enable-128bit
-    - name: Helix (128 bit)
-      script: ./rosetta.sh compile --enable-protocol-mpc-helix
-    - name: SecureNN and Helix
-      script: ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit
-    - name: SecureNN and Helix (128 bit)
-      script: ./rosetta.sh compile --enable-protocol-mpc-securenn --enable-protocol-mpc-helix
+script:
+  - ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS
 
 branches:
   only:
