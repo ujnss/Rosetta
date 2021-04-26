@@ -2,7 +2,7 @@
 #
 # Note, this script is called by ../rosetta.sh
 #
-set -ex
+# set -ex
 
 curdir=$(pwd)
 ccdir=${curdir}
