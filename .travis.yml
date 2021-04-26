@@ -18,10 +18,12 @@ before_install:
 install:
   - pip install tensorflow==1.14.0
 before_script: 
-  - python --version
+  - python --version && cmake --version && gcc --version
   - ./rosetta.sh clean
 script:
-  - ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS
+  - ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
+before_script: 
+  - ./rosetta.sh install
 
 branches:
   only:

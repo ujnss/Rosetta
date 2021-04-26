@@ -62,7 +62,7 @@ function run_rosetta_install_python() {
   if [ "$USER" == "root" ]; then
     ${pip_cmd} install dist/*.whl
   else
-    ${pip_cmd} install dist/*.whl --user
+    ${pip_cmd} install dist/*.whl
   fi
 
   cd ${curdir}
