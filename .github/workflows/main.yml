@@ -19,14 +19,8 @@ jobs:
       matrix:
         python-version: [3.6, 3.7, 3.8]
         env:
-          - KKK: "ABCD"
-          - KKK: "ABCDE"
-        include:
-          - rosetta_compile_option: "--enable-protocol-mpc-securenn"
-            python-version: [3.6, 3.7, 3.8]
-            other: "other"
-          - rosetta_compile_option: "--enable-protocol-mpc-securenn --enable-128bit"
-            other: "others"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-128bit"
     steps:
       - uses: actions/checkout@v2
       - name: Install basic dependencies
@@ -40,9 +34,6 @@ jobs:
       - name: Before compile
         run: echo ${GITHUB_WORKSPACE} && ls -al && ls .. -al && ls ../.. -al
       - name: Compile
-        env:
-          ROSETTA_COMPILE_OPTIONS: ${{ matrix.rosetta_compile_option }}
-          OTHER: ${{ matrix.other }}
         run: echo "./rosetta.sh compile ${ROSETTA_COMPILE_OPTIONS} --enable-tests"
         # run: ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
       # - name: Install
