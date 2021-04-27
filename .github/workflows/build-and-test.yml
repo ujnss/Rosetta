@@ -3,7 +3,7 @@ name: Build-and-Test
 on:
   push:
     # branches: [test-actions]
-    paths-ignore: ["**.md", "doc/**"]
+    paths-ignore: ["**.md", "doc/**", "**/performance-test.yml"]
   pull_request:
     # branches: [test-actions]
     paths-ignore: ["**.md", "doc/**"]
