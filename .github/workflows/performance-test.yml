@@ -1,8 +1,6 @@
 name: Performance Test (Manually)
 
 on:
-  push:
-    branches: [test-actions]
   workflow_dispatch:
     # inputs:
     #   name:
