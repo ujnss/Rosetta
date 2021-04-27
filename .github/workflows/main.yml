@@ -1,4 +1,4 @@
-name: Rosetta
+name: Build-and-Test
 
 on:
   push:
@@ -33,6 +33,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install basic dependencies
         run: |
           sudo apt-get update
@@ -52,7 +53,7 @@ jobs:
       - name: Install
         run: ./rosetta.sh install
 
-      - name: Tests & examples
+      - name: Run tests & examples
         run: ./rosetta.sh test all
-      - name: Tutorials
+      - name: Run tutorials
         run: cd ./example/tutorials/code && bash ./tutorials.sh all

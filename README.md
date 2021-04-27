@@ -4,7 +4,7 @@
 
 --------------------------------------------------------------------------------
 
-[![Build Status](https://travis-ci.com/ujnss/Rosetta.svg?branch=master)](https://travis-ci.com/ujnss/Rosetta)
+[![Build Status](https://github.com/ujnss/Rosetta/actions/workflows/main.yml/badge.svg?branch=test-actions)](https://github.com/ujnss/Rosetta/actions/workflows/main.yml)
 
 [中文版](./README_CN.md)
 
