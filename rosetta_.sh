@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -e
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -61,7 +61,7 @@ function run_rosetta_install_python() {
   if [ "$USER" == "root" ]; then
     ${pip_cmd} install dist/*.whl
   else
-    ${pip_cmd} install dist/*.whl
+    ${pip_cmd} install dist/*.whl --user
   fi
 
   cd ${curdir}

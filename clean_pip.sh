@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+#set -x
 
 rm python/latticex_rosetta.egg-info -rf
 rm python/latticex/lib*.so -rf

@@ -12,7 +12,7 @@
 #
 # Important! If you want to run tests/perf under 128bit(only mpc), please export ROSETTA_MPC_128=ON first.
 #
-set -ex
+set -e
 
 . ./rosetta_.sh
 
