@@ -3,10 +3,10 @@ name: Build-and-Test
 on:
   push:
     # branches: [test-actions]
-    paths-ignore: ["**.md"]
+    paths-ignore: ["**.md", "doc/**"]
   pull_request:
     # branches: [test-actions]
-    paths-ignore: ["**.md"]
+    paths-ignore: ["**.md", "doc/**"]
 
   # Manual trigger
   # workflow_dispatch:
@@ -48,7 +48,7 @@ jobs:
       - name: Install python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install tensorflow==1.14.0 sklearn matplotlib
+          pip install tensorflow==1.14.0 sklearn matplotlib numpy==1.16.0
       - name: List versions
         run: uname -a && gcc --version && cmake --version && python --version && python3 --version && pip --version && pip list
 
