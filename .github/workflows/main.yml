@@ -53,13 +53,12 @@ jobs:
       - name: Compile
         env:
           ROSETTA_COMPILE_OPTIONS: ${{ matrix.env.rosetta_compile_options }}
-        run: echo "./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests"
-      #   run: ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
+        run: ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
 
-      # - name: Install
-      #   run: ./rosetta.sh install
+      - name: Install
+        run: ./rosetta.sh install
 
-      # - name: Run tests & examples
-      #   run: ./rosetta.sh test all
-      # - name: Run tutorials
-      #   run: cd ./example/tutorials/code && bash ./tutorials.sh all
+      - name: Run tests & examples
+        run: ./rosetta.sh test all
+      - name: Run tutorials
+        run: cd ./example/tutorials/code && bash ./tutorials.sh all
