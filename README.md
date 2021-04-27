@@ -2,7 +2,7 @@
 
 [![github license](https://img.shields.io/badge/license-LGPLv3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0.en.html)
 
-[![Status](https://github.com/ujnss/Rosetta/actions/workflows/main.yml/badge.svg?branch=test-actions)](https://github.com/ujnss/Rosetta/actions/workflows/main.yml)
+[![Build-and-Test](https://github.com/ujnss/Rosetta/actions/workflows/build-and-test.yml/badge.svg?branch=test-actions)](https://github.com/ujnss/Rosetta/actions/workflows/build-and-test.yml)
 
 --------------------------------------------------------------------------------
 
