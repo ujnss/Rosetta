@@ -15,9 +15,7 @@ on:
     #     default: "The Octoverse"
 
 jobs:
-  say_hello:
+  SSSSSSSS:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Hello ${{ github.event.inputs.name }}!"
-          echo "- in ${{ github.event.inputs.home }}!"
+      - run: echo "ehloo"
