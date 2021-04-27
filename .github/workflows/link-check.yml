@@ -2,9 +2,9 @@ name: Check links
 
 on:
   push:
-    paths: ["**.md"]
+    paths: ["**.md", "link-check.yml"]
   pull_request:
-    paths: ["**.md"]
+    paths: ["**.md", "link-check.yml"]
 
 jobs:
   markdown-link-check:
@@ -17,5 +17,6 @@ jobs:
         with:
           use-quiet-mode: "yes"
           use-verbose-mode: "yes"
-          folder-path: "cc,doc,example,python"
-          file-path: "CODE_OF_CONDUCT.md,CONTRIBUTING.md,README_CN.md,README.md,RELEASE.md"
+          # No exclude parameter, so,
+          folder-path: "cc/modules,cc/python_export,cc/tf,doc,example,python"
+          file-path: "CODE_OF_CONDUCT.md,CONTRIBUTING.md,README_CN.md,README.md,RELEASE.md,cc/modules/README.md"
