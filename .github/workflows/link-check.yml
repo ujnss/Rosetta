@@ -2,9 +2,11 @@ name: Check links
 
 on:
   push:
-    paths: ["**.md", "link-check.yml"]
+    paths: ["**.md", "**/link-check.yml"]
   pull_request:
-    paths: ["**.md", "link-check.yml"]
+    paths:
+      - "**.md"
+      - "link-check.yml"
 
 jobs:
   markdown-link-check:
