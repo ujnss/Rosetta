@@ -26,11 +26,11 @@ jobs:
         python-version: [3.6, 3.7]
         env:
           - rosetta_compile_options: "--enable-protocol-mpc-securenn"
-          # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-128bit"
-          # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-helix"
-          # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-helix --enable-128bit"
-          # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
-          # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-128bit"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-helix"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-helix --enable-128bit"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
+          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
     steps:
       - name: Git clone repository
         uses: actions/checkout@v2
@@ -51,15 +51,19 @@ jobs:
           pip install tensorflow==1.14.0 sklearn matplotlib
       - name: List versions
         run: uname -a && gcc --version && cmake --version && python --version && python3 --version && pip --version && pip list
-      # - name: Before compile
-      #   run: ./rosetta.sh clean
-      # - name: Compile
-      #   env:
-      #     ROSETTA_COMPILE_OPTIONS: ${{ matrix.env.rosetta_compile_options }}
-      #   run: ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
-      # - name: Install
-      #   run: ./rosetta.sh install
-      # - name: Run tests & examples
-      #   run: ./rosetta.sh test all
-      # - name: Run tutorials
-      #   run: cd ./example/tutorials/code && bash ./tutorials.sh all
+
+      - name: Before compile
+        run: ./rosetta.sh clean
+      - name: Compile
+        env:
+          ROSETTA_COMPILE_OPTIONS: ${{ matrix.env.rosetta_compile_options }}
+        run: ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
+
+      - name: Install
+        run: ./rosetta.sh install
+
+      - name: Run tests & examples
+        run: ./rosetta.sh test all
+
+      - name: Run tutorials
+        run: cd ./example/tutorials/code && bash ./tutorials.sh all
