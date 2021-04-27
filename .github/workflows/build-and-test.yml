@@ -16,14 +16,6 @@ defaults:
     working-directory: ./
 
 jobs:
-  markdown-link-check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git clone repository
-        uses: actions/checkout@v2
-      - name: Do markdown-link-check
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
-
   build-and-test:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -59,17 +51,14 @@ jobs:
           pip install tensorflow==1.14.0 sklearn matplotlib
       - name: List versions
         run: uname -a && gcc --version && cmake --version && python --version && python3 --version && pip --version && pip list
-
       # - name: Before compile
       #   run: ./rosetta.sh clean
       # - name: Compile
       #   env:
       #     ROSETTA_COMPILE_OPTIONS: ${{ matrix.env.rosetta_compile_options }}
       #   run: ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
-
       # - name: Install
       #   run: ./rosetta.sh install
-
       # - name: Run tests & examples
       #   run: ./rosetta.sh test all
       # - name: Run tutorials

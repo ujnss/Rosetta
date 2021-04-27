@@ -1,0 +1,21 @@
+name: Check links
+
+on:
+  push:
+    paths: ["**.md"]
+  pull_request:
+    paths: ["**.md"]
+
+jobs:
+  markdown-link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone repository
+        uses: actions/checkout@v2
+      - name: Do markdown-link-check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: "yes"
+          use-verbose-mode: "yes"
+          folder-path: "cc,doc,example,python"
+          file-path: "CODE_OF_CONDUCT.md,CONTRIBUTING.md,README_CN.md,README.md,RELEASE.md"
