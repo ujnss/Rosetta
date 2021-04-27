@@ -4,9 +4,7 @@ on:
   push:
     paths: ["**.md", "**/link-check.yml"]
   pull_request:
-    paths:
-      - "**.md"
-      - "link-check.yml"
+    paths: ["**.md", "**/link-check.yml"]
 
 jobs:
   markdown-link-check:
@@ -21,4 +19,4 @@ jobs:
           use-verbose-mode: "yes"
           # No exclude parameter, so,
           folder-path: "cc/modules,cc/python_export,cc/tf,doc,example,python"
-          file-path: "CODE_OF_CONDUCT.md,CONTRIBUTING.md,README_CN.md,README.md,RELEASE.md,cc/modules/README.md"
+          file-path: "CODE_OF_CONDUCT.md,CONTRIBUTING.md,README_CN.md,README.md,RELEASE.md,cc/README.md"
