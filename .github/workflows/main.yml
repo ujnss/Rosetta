@@ -22,7 +22,7 @@ jobs:
         os: [ubuntu-18.04, ubuntu-20.04] # [ubuntu-16.04, ubuntu-18.04, ubuntu-20.04]
         python-version: [3.6, 3.7]
         env:
-          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn"
+          - rosetta_compile_options: "--enable-protocol-mpc-securenn"
           # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-128bit"
           # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-helix"
           # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-helix --enable-128bit"
@@ -51,6 +51,8 @@ jobs:
       - name: Before compile
         run: ./rosetta.sh clean
       - name: Compile
+        env:
+          ROSETTA_COMPILE_OPTIONS: ${{ matrix.rosetta_compile_options }}
         run: ./rosetta.sh compile $ROSETTA_COMPILE_OPTIONS --enable-tests
 
       - name: Install
