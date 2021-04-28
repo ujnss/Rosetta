@@ -1,4 +1,4 @@
-name: Performance Test (Manually)
+name: Performance Test
 
 on:
   push:
