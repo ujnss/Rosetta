@@ -1,6 +1,7 @@
 name: Performance Test (Manually)
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       name:
@@ -25,10 +26,10 @@ jobs:
           - rosetta_compile_options: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
           # - rosetta_compile_options: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
     steps:
-      - name: Systeminfo
-        run: |
-          uname -a
-          cat /proc/cpuinfo
+      - name: Git clone repository
+        uses: actions/checkout@v2
+      - name: System info
+        run: ./system_info.sh
 
       # - name: Git clone repository
       #   uses: actions/checkout@v2
