@@ -1,9 +1,9 @@
 name: Build-and-Test
 
 on:
-  # push:
-  #   # branches: [test-actions]
-  #   paths-ignore: ["**.md", "doc/**"]
+  push:
+    # branches: [test-actions]
+    paths-ignore: ["**.md", "doc/**"]
   pull_request:
     # branches: [test-actions]
     paths-ignore: ["**.md", "doc/**"]

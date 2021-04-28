@@ -1,7 +1,7 @@
 name: Performance Test
 
 on:
-  push:
+  release:
   workflow_dispatch:
     inputs:
       name:
