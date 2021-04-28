@@ -25,7 +25,7 @@ jobs:
           - rosetta_compile_options: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
           # - rosetta_compile_options: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
     steps:
-      - name: Git clone repository
+      - name: Git clone repository 0
         uses: actions/checkout@v2
         with:
           submodules: recursive
