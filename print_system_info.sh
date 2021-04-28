@@ -24,5 +24,5 @@ echo -e "\n>>>>>>>>>>>>> Disk Info <<<<<<<<<<<<<<"
 df -hiP | sed 's/Mounted on/Mounted/' >/tmp/inode
 df -hTP | sed 's/Mounted on/Mounted/' >/tmp/disk
 join /tmp/disk /tmp/inode | awk '{print $1,$2,"|",$3,$4,$5,$6,"|",$8,$9,$10,$11,"|",$12}' | column -t
-########################################
+##################################################
 echo ""
