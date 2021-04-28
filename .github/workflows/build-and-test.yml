@@ -26,11 +26,11 @@ jobs:
         python-version: [3.6, 3.7]
         env:
           # - rosetta_compile_options: "--enable-protocol-mpc-securenn"
-          # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-128bit"
-          # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-helix"
-          # - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-helix --enable-128bit"
-          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
-          - ROSETTA_COMPILE_OPTIONS: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
+          # - rosetta_compile_options: "--enable-protocol-mpc-securenn --enable-128bit"
+          # - rosetta_compile_options: "--enable-protocol-mpc-helix"
+          # - rosetta_compile_options: "--enable-protocol-mpc-helix --enable-128bit"
+          - rosetta_compile_options: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
+          - rosetta_compile_options: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
     steps:
       - name: Git clone repository
         uses: actions/checkout@v2
