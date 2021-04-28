@@ -25,7 +25,7 @@ jobs:
           - rosetta_compile_options: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix"
           # - rosetta_compile_options: "--enable-protocol-mpc-securenn --enable-protocol-mpc-helix --enable-128bit"
     steps:
-      - name: Git clone repository 0
+      - name: Git clone repository
         uses: actions/checkout@v2
         with:
           submodules: recursive
@@ -54,3 +54,9 @@ jobs:
 
       - name: Install
         run: ./rosetta.sh install
+
+      - name: Run perf tests (c++ protocol level)
+        run: |
+          ./rosetta.sh perf all
+          # cat P0
+          cat ./build/bin/log/protocol_mpc_tests_*_perf.cpp-0-console.log
