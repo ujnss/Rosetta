@@ -14,6 +14,7 @@ jobs:
           submodules: recursive
       - name: Run subs
         run: echo "Test subs"
-      - uses: ./.github/workflows/sub0/sub
+      - uses: ./.github/workflows/sub0/
+      - uses: ./.github/workflows/sub1/
       - name: Cat subs
         run: cat *.txt
